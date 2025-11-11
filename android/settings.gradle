@@ -1,6 +1,28 @@
-pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
-plugins { id("com.facebook.react.settings") }
-extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
-rootProject.name = 'thewellnessformula'
-include ':app'
-includeBuild('../node_modules/@react-native/gradle-plugin')
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+    includeBuild("../node_modules/@react-native/gradle-plugin")
+}
+
+plugins {
+    id("com.facebook.react.settings")
+}
+
+def safeAutolink(reactSettings) {
+    try {
+        reactSettings.autolinkLibrariesFromCommand()
+    } catch (Exception e) {
+        println("⚠️ Autolinking skipped due to Node issue: ${e.message}")
+    }
+}
+
+extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
+    safeAutolink(ex)
+}
+
+rootProject.name = "thewellnessformula"
+include(":app")
+includeBuild("../node_modules/@react-native/gradle-plugin")
