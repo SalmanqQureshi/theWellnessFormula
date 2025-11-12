@@ -1,0 +1,12 @@
+// export * from './Tabs';
+export * from "./Webview";
+export * from "./ChangePasswod";
+export * from "./AboutUs";
+export * from "./Account";
+export * from "./Profile";
+export * from "./NotificationSetting";
+export * from "./Language";
+export * from "./Notification";
+export * from "./Article";
+export * from "./Nutrition";
+export * from "./Tabs";
