@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Block, Text, Button, TextInput, useAuth, Form, Image, CheckBox } from '../../components';
 import { AuthProps } from '.';
 import { Colors, Images, Metrics } from '../../config';
-import { ActivityIndicator, Platform, ScrollView, View } from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { request } from '../../components/ApiService';
 import { useNavigation } from '@react-navigation/native';
 export const SignIn = () => {
@@ -16,8 +16,11 @@ export const SignIn = () => {
   }, [false])
 
   return (
-    // <Block safe flex scroll scrollGradient gradient={[Colors.onPrimary, Colors.onSecondary]}>
-    <ScrollView>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : ''}
+      style={{flex:1}}
+    >
+    <ScrollView >
       <Form onSubmit={(data) =>
         logIn({ isLoggedIn: true })}>
         {({ register, submit, loading }) => (
@@ -96,7 +99,7 @@ export const SignIn = () => {
         )}
       </Form>
     </ScrollView>
-    // </Block>
+    </KeyboardAvoidingView>
 
   );
 };

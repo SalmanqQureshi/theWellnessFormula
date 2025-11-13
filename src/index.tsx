@@ -23,7 +23,7 @@ export default function App() {
   return (
     <AuthProvider PersistVersion={0}>
       <StatusBar barStyle={'dark-content'} />
-      <Block flex gradient={[Colors.error, Colors.error]} backgroundColor='#000'>
+      <Block flex gradient={[Colors.error, Colors.error]}>
         <RootNavigation />
       </Block>
       <Alert />

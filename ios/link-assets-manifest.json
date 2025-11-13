@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/OSerif-Italic.otf",
+      "sha1": "c11123d34e83c39d52115f97dd52ad79a44b72cd"
+    },
+    {
+      "path": "assets/fonts/OSerif-Regular.otf",
+      "sha1": "24f8b75e9725b17a9f0fb038f1b1d878a15b27d3"
+    }
+  ]
+}

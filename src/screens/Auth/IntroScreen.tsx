@@ -64,7 +64,7 @@ const IntroScreen = (props: AuthProps<'IntroScreen'>) => {
                         <Text size={'H2'} font='Bold' style={styles.title}>
                             {data.title}
                         </Text>
-                        <Text size={'H6'} color={'textBackground'}>
+                        <Text size={'H6'} color={'textBackground'} font='Regular'>
                             {data.desc}
                         </Text>
                     </View>

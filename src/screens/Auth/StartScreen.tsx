@@ -2,6 +2,7 @@ import React from 'react'
 import { Block, Button, Image } from '../../components'
 import { Colors, Images, Metrics } from '../../config'
 import { AuthProps } from '.'
+import { View } from 'react-native'
 
 const StartScreen = (props: AuthProps<"StartScreen">) => {
     return (
@@ -10,7 +11,13 @@ const StartScreen = (props: AuthProps<"StartScreen">) => {
                 <Image source={Images.LoginLogo} style={{ alignSelf: 'center', position: 'absolute' }} />
             </Block>
             <Block>
-                <Button label="Get Started" onPress={() => props.navigation.navigate('IntroScreen')} type='Solid' style={{ bottom: 180, width: 133, alignSelf: 'center' }} />
+                <Block style={{ bottom: 180, width: 133, alignSelf: 'center',backgroundColor:'red' }}>
+                <Button 
+                label="Get Started" 
+                onPress={() => props.navigation.navigate('IntroScreen')} 
+                type='Solid' 
+                style={{backgroundColor:'red' }} />
+                </Block>
             </Block>
         </Block>
     )
