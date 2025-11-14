@@ -4,8 +4,9 @@ import { useNavigation } from '@react-navigation/native'
 import { Colors, Images, Metrics } from '../../config'
 import { View } from 'react-native'
 import { navigate } from '../../services'
+import { MainStackProps } from '.'
 
-export const ChangePasswod = () => {
+export const ChangePasswod = (props: MainStackProps<'ChangePasswod'>) => {
     const { goBack } = useNavigation()
     return (
         <Block scroll flex gradient={[Colors.onPrimary, Colors.onSecondary]}>

@@ -15,6 +15,7 @@ interface AuthStateType {
 }
 interface AuthContextType extends AuthStateType {
   logIn: (params: AuthStateType) => any;
+  loginAsGuest: (params: AuthStateType) => any;
   logOut: () => any;
 }
 
@@ -31,6 +32,7 @@ export const AuthContext = createContext<AuthContextType>({
   ...defaultAuthValues,
   logIn: () => {},
   logOut: () => {},
+  loginAsGuest:()=>{}
 });
 
 export const useAuth = () => {
@@ -46,6 +48,11 @@ export const AuthProvider = ({
     setAuth(s => ({
       ...s,
       user,
+      isLoggedIn: true,
+    }));
+  };
+  const loginAsGuest = (user) => {
+    setAuth(s => ({
       isLoggedIn: true,
     }));
   };
@@ -75,7 +82,7 @@ export const AuthProvider = ({
     return () => {};
   }, [Auth]);
   return (
-    <AuthContext.Provider value={{...Auth, logIn, logOut}}>
+    <AuthContext.Provider value={{...Auth, logIn, logOut,loginAsGuest}}>
       {children}
     </AuthContext.Provider>
   );

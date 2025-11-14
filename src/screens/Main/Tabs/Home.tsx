@@ -3,6 +3,7 @@ import { Block, Image, Text } from '../../../components'
 import { Colors, Images } from '../../../config'
 import { ImageBackground, Platform, ScrollView, StyleSheet, View } from 'react-native'
 import { navigate } from '../../../services';
+import Carousel, {CarouselRenderItem,} from 'react-native-reanimated-carousel'
 
 
 const dataArray = [
@@ -47,14 +48,19 @@ const Home = () => {
                     {rows.map((row, rowIndex) => (
                         <View key={rowIndex} style={styles.row}>
                             {row.map((item) => (
-                                <Block backgroundColor={Colors.secondary} row width={Platform.OS == 'android' ? 174 : 156} style={{ borderRadius: 5, marginHorizontal: 6 }}>
+                                <Block backgroundColor={Colors.secondary}
+                                    row width={'48%'}
+                                    style={{ borderRadius: 5, marginHorizontal: 6,marginRight:0 }}>
                                     <Block margin={{ Horizontal: 10, Vertical: 16 }} gap={4}>
-                                        <Text size='H6' color='onPrimary'>{item.title}</Text>
+                                        <Text size={item?.id===6?'Body' : 'H6'} color='onPrimary'>{item.title}</Text>
                                         <Text size='Small' color='onPrimary'>{item.description}</Text>
                                     </Block>
-                                    <Image source={item.images} style={{ width: item?.id == 6 ? 30 : 36, height: item?.id == 6 ? 30 : 36, borderRadius: 10, alignSelf: 'center' }} />
+                                    <Image source={item.images} style={{ width: 36, height: 36, borderRadius: 10, alignSelf: 'center',position:'absolute', right:6 }} />
                                 </Block>))}
                         </View>))}
+                        {/* <Carousel 
+                        data={[]}
+                        renderItem={()=>{}} /> */}
                 </Block>
                 <Image source={Images.frame_card2} style={{ width: '93%', height: 56, borderRadius: 10, marginHorizontal: 16, marginVertical: 12 }} />
                 <Block margin={{ Horizontal: 15, Top: 0, Bottom: 80 }} padding={{ Horizontal: 4, Vertical: 15 }} style={{ borderColor: Colors.outlineVariant, borderWidth: 0.5, borderRadius: 10 }}>

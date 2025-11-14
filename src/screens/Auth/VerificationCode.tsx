@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Block, Button, Image, Text, TextInput, } from '../../components';
-import { Colors, Images, Metrics } from '../../config';
+import { Colors, Fonts, Images, Metrics } from '../../config';
 import { AuthProps } from '.';
 import { View } from 'react-native';
 import {OtpInput,OtpInputProps} from 'react-native-otp-entry'
@@ -66,6 +66,9 @@ export const VerificationCode = (props: AuthProps<'VerificationCode'>) => {
                         borderWidth:0,
                         borderBottomWidth:1,
                         width:60,
+                      },
+                      pinCodeTextStyle:{
+                        fontFamily: Fonts.BoldItalic
                       }
                     }}
                     />

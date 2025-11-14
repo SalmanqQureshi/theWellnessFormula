@@ -21,7 +21,7 @@ export const Account = () => {
         },
         {
             title: 'Change Password',
-            onPress: 'ChangePassword'
+            onPress: 'ChangePasswod'
         },
         {
             title: 'Privacy & Policy',

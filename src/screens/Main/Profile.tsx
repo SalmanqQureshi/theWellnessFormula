@@ -4,7 +4,7 @@ import { Colors, Icons, Images } from '../../config'
 import { StyleSheet } from 'react-native'
 import { MainStackProps, MainStackType } from '.'
 
-const Profile = (props: MainStackProps) => {
+const Profile = (props: MainStackProps<'Profile'>) => {
     console.log('props', props)
     const [editSate, setEditState] = useState(false)
     props.navigation.setOptions({

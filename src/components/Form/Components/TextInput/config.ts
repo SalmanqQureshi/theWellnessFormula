@@ -35,7 +35,7 @@ export const style: InputStyleType = (animateOnFocus, animateOnError) => ({
   },
   inputContainer: {
     borderRadius: Metrics.heightRatio(10),
-    minHeight: 52,
+    minHeight: Platform.OS=='ios' ? 52 : 58,
     paddingTop: 14,
     paddingStart: Metrics.heightRatio(10),
     flexDirection: "row",

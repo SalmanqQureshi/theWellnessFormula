@@ -29,7 +29,7 @@ export type MainStackType = {
   ProjectDetail: undefined | {}
   TaskDetail: undefined | {}
   EditProfile: undefined | {}
-  ChangePassword: undefined | {}
+  ChangePasswod: undefined | {}
   AboutUs: undefined | {}
   ProjectDetailFolder: undefined | {}
   ProjectDetailPdfList: undefined | {}
@@ -106,7 +106,7 @@ export const MainStack = () => {
         }
       })}>
         <Stack.Screen component={WebView} name={'WebView'} />
-        <Stack.Screen component={ChangePasswod} name={'ChangePassword'} />
+        <Stack.Screen component={ChangePasswod} name={'ChangePasswod'} />
         <Stack.Screen component={AboutUs} name={'AboutUs'} />
         <Stack.Screen component={Account} name={'Account'} />
         <Stack.Screen component={Profile} name={'Profile'} />

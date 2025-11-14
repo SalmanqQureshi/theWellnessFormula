@@ -6,7 +6,7 @@ import { ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView, View } f
 import { request } from '../../components/ApiService';
 import { useNavigation } from '@react-navigation/native';
 export const SignIn = () => {
-  const { logIn } = useAuth()
+  const { logIn,loginAsGuest } = useAuth()
   const { navigate } = useNavigation()
   const [passwordState, setPasswordState] = useState(true)
   useEffect(() => {
@@ -92,7 +92,7 @@ export const SignIn = () => {
                 borderRadius: 10,
                 // padding: 15
               }}>
-                <Text color='secondary' align='center' padding={{ Vertical: 0 }} size='Body' style={{ paddingVertical: 15 }}>Login as guest</Text>
+                <Text color='secondary' onPress={()=>{loginAsGuest({isLoggedIn:true})}} align='center' padding={{ Vertical: 0 }} size='Body' style={{ paddingVertical: 15 }}>Login as guest</Text>
               </View>
             </Block>
           </Block>
