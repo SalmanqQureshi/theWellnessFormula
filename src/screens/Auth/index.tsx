@@ -17,7 +17,14 @@ const Stack = createNativeStackNavigator<AuthStackType>();
 
 export const AuthStack = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerTransparent: true, headerTitle: '', headerShown: false }}>
+    <Stack.Navigator screenOptions={{
+      headerTransparent: true,
+      headerTitle: '',
+      headerShown: false,
+      presentation: 'modal',
+      animation: 'slide_from_right',
+      animationDuration: 20
+    }}>
       <Stack.Screen component={StartScreen} name="StartScreen" />
       <Stack.Screen component={IntroScreen} name="IntroScreen" />
       <Stack.Screen component={SignIn} name="SignIn" />
