@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Block, FlatList, Image, Text } from '../../../components'
+import { Block, FlatList, Image, SearchBar, Text } from '../../../components'
 import { Colors, Images } from '../../../config'
-import { ScrollView } from 'react-native'
+import { ImageBackground, ScrollView } from 'react-native'
 import { navigate } from '../../../services'
 
 const Progress = () => {
@@ -18,6 +18,17 @@ const Progress = () => {
     return (
         <Block flex scroll scrollGradient gradient={[Colors.onPrimary, Colors.onSecondary]}>
             <Image source={Images.progress_sreach} style={{ width: '93%', height: 56, borderRadius: 10, marginHorizontal: 16, marginTop: 24 }} />
+            <ImageBackground
+                source={Images.background}
+                style={{
+                    height: 56,
+                    borderRadius: 10,
+                    marginHorizontal: 14,
+                    marginVertical: 12,
+                    overflow: 'hidden',
+                }}>
+                    <SearchBar onChange={s => {}} Style={{backgroundColor:'transparent',borderWidth:0}}/>
+                </ImageBackground>
             <Block style={{ flexDirection: 'row', marginHorizontal: 7 }} margin={{ Top: 13, Bottom: 16 }}>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     {dataArr.map((item, index) => (

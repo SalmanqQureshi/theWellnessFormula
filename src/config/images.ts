@@ -1,6 +1,7 @@
 export const Images = Object.freeze({
   // icAccount: require('../../assets/icons/icAcount.png'),
  LoginLogo: require('../../assets/images/LoginLogo.png'),
+  background: require('../../assets/images/background.jpg'),
   backgroundScreen: require('../../assets/images/backgroundScreen.png'),
   StartScreen1: require('../../assets/images/StartScreen1.png'),
   StartScreen2: require('../../assets/images/StartScreen2.png'),

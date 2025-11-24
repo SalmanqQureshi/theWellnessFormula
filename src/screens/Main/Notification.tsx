@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Block, Image, Text } from '../../components'
 import { Colors, Images } from '../../config'
 import { ScrollView, View } from 'react-native'
@@ -41,6 +41,7 @@ const Notification = () => {
             images: Images.icUser
         },
     ]
+    const [state,clearSate] =useState(languageData)
     return (
         <Block flex scroll scrollGradient gradient={[Colors.onPrimary, Colors.onSecondary]}>
             <Text
@@ -48,12 +49,13 @@ const Notification = () => {
                 margin={{ Horizontal: 16, }}
                 color='primary'
                 size={'H5'}
+                onPress={()=>(clearSate(s=>(s=[])))}
                 numberOfLines={2}>
                 {'Clear All'}
             </Text>
             <ScrollView>
                 <Block margin={{ Top: 0, Horizontal: 16 }}>
-                    {languageData.map((item, index) => (
+                    {state?.map((item, index) => (
                         <Block
                             backgroundColor='transparent'
                             padding={{ Vertical: 15, Horizontal: 16 }}

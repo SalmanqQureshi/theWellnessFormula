@@ -41,8 +41,26 @@ const Home = () => {
         <Block flex scroll scrollGradient gradient={[Colors.onPrimary, Colors.onSecondary]}>
             <ScrollView showsHorizontalScrollIndicator={false}>
                 <Block margin={{ Horizontal: 16, Top: 20 }}>
-                    <Image source={Images.frame_card} style={{ width: '100%', height: 108, borderRadius: 10 }} />
-                    {/* </ImageBackground> */}
+                    <ImageBackground 
+                    source={Images.background} 
+                    style={{ 
+                        width: '100%', 
+                        height: 108, 
+                        borderRadius: 10,
+                        overflow:'hidden',
+                        justifyContent:'center'}}>
+                        <Text 
+                        size={'H4'} 
+                        color='onPrimary' 
+                        margin={{Horizontal:12,}}
+                        font='BoldItalic'>{'GOOD MORNING JUDIE'}</Text>
+                        <Text 
+                        size='Small' 
+                        color='onPrimary' 
+                        margin={{Horizontal:12,}}
+                        letterSpacing={3}>{'Have a Great day ahead!'}</Text>
+                    </ImageBackground>
+                    {/* <Image source={Images.frame_card} style={{ width: '100%', height: 108, borderRadius: 10 }} /> */}
                 </Block>
                 <Block margin={{ Horizontal: 15, Top: 20 }} padding={{ Horizontal: 4, Vertical: 15 }} style={{ borderColor: Colors.outlineVariant, borderWidth: 0.5, borderRadius: 10 }}>
                     <Text
@@ -104,7 +122,29 @@ const Home = () => {
                         }}
                     /> */}
                 </Block>
-                <Image source={Images.frame_card2} style={{ width: '93%', height: 56, borderRadius: 10, marginHorizontal: 16, marginVertical: 12 }} />
+                
+                {/* <Image source={Images.frame_card2} style={{ width: '93%', height: 56, borderRadius: 10, marginHorizontal: 16, marginVertical: 12 }} /> */}
+                <ImageBackground 
+                    source={Images.background} 
+                    style={{ 
+                         height: 56, 
+                         borderRadius: 10, 
+                         marginHorizontal: 14,  
+                         marginVertical: 12,
+                        overflow:'hidden',
+                        flexDirection:'row',
+                        alignItems:'center'}}>
+                        <Text 
+                        size={'H6'} 
+                        color='onPrimary' 
+                        margin={{Horizontal:12,}}
+                        font='BoldItalic'>{'Today wellness Tips:'}</Text> 
+                        <Text 
+                        size={'Small'} 
+                        color='onPrimary' 
+                        margin={{}}
+                        font='BoldItalic'>{'Fill half your plate with colourful veg'}</Text> 
+                    </ImageBackground>
                 <Block margin={{ Horizontal: 15, Top: 0, Bottom: 80 }} padding={{ Horizontal: 4, Vertical: 15 }} style={{ borderColor: Colors.outlineVariant, borderWidth: 0.5, borderRadius: 10 }}>
                     <Text
                         style={{ paddingTop: 5 }}

@@ -23,7 +23,7 @@ export const SearchBar = ({
       shadow
       row
       height={Metrics.heightRatio(Sizes.Button.search)}
-      backgroundColor={Colors.onPrimary}
+      backgroundColor={Style?.backgroundColor? Style.backgroundColor :Colors.onPrimary}
       margin={{ Vertical: 4 }}
       padding={{ Horizontal: 16 }}
       style={[{
