@@ -17,8 +17,8 @@ export const Colors = Object.freeze({
   onPrimaryContainer: "rgb(0, 31, 41)",
 
   // secondary: 'rgb(0, 101, 140)',
-  onSecondary: "rgb(252, 234, 227)",
-  textInputLabel: "rgb(252, 234, 227,0.7)",
+  onSecondary: "rgb(252, 244, 247)",
+  textInputLabel: "rgb(252, 244, 237,0.7)",
   secondaryContainer: "rgb(197, 231, 255)",
   onSecondaryContainer: "rgb(0, 30, 45)",
 

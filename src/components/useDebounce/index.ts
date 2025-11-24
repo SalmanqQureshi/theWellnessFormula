@@ -10,7 +10,7 @@ export function useDebounceBase(value: string, delay: number) {
     return debouncedValue;
 }
 export function useDebouncedState(
-    initialValue = '',
+    initialValue :string= '',
     delay = 500,
     onChange: undefined | ((value: string) => any),
 ) {

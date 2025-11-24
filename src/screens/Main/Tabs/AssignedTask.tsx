@@ -67,7 +67,7 @@ export const AssignedTask = (props: TabProps<any>) => {
         {_renderHeader()}
       </Block>
       <Block row margin={{ Horizontal: Metrics.iPadHeightRatio(16), Top: Metrics.iPadHeightRatio(12) }}>
-        <SearchBar onChange={s => null} Style={{ flex: 1 }} />
+        <SearchBar onChange={s => null} Style={{ flex: 1 }} returnKeyType={''}/>
         <Icon
           size={60}
           onPress={() => { refRBSheet.current.open() }}

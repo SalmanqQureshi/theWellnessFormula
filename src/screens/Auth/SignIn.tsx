@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Block, Text, Button, TextInput, useAuth, Form, Image, CheckBox } from '../../components';
+import { Block, Text, Button, TextInput, useAuth, Form, Image, CheckBox, ChipInputButton } from '../../components';
 import { AuthProps } from '.';
 import { Colors, Images, Metrics } from '../../config';
 import { ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
@@ -9,6 +9,7 @@ export const SignIn = () => {
   const { logIn,loginAsGuest } = useAuth()
   const { navigate } = useNavigation()
   const [passwordState, setPasswordState] = useState(true)
+  const [chipValue, setChipValue] = useState([])
   useEffect(() => {
     setTimeout(() => {
       <ActivityIndicator color={Colors.error} size={'large'} />
@@ -38,6 +39,24 @@ export const SignIn = () => {
                 rightIcon={passwordState ? 'icOpenEye' : 'icOPenEye'}
                 onRightIconPress={() => { setPasswordState(s => !s) }}
                 secureTextEntry={passwordState}
+              />
+            <ChipInputButton
+              label={'name'}
+              onChangeText={(text)=>{ 
+                setChipValue(text1=>{
+                 if(text?.includes(',' || ' ')) 
+                  text1?.push(text)
+                })
+                console.log('text',text)
+              }}  
+              onSubmit={()=>{ 
+                setChipValue(text1=>{
+                 if(text1?.includes(',' || ' ')) 
+                  text1?.push(text1)
+                })
+              }}
+              value={chipValue}
+              chipText={chipValue}
               />
               <Block row margin={{ Top: 6 }}>
                 <CheckBox

@@ -3,7 +3,8 @@ import { Block, Image, Text } from '../../../components'
 import { Colors, Images } from '../../../config'
 import { ImageBackground, Platform, ScrollView, StyleSheet, View } from 'react-native'
 import { navigate } from '../../../services';
-import Carousel, {CarouselRenderItem,} from 'react-native-reanimated-carousel'
+import Carousel, { CarouselRenderItem, } from 'react-native-reanimated-carousel'
+import Animated from 'react-native-reanimated';
 
 
 const dataArray = [
@@ -23,8 +24,14 @@ const dataArray2 = [
     { id: 3, title: 'Nutrition 1', description: '2 Sessions remaining!', },
 ];
 
-
-
+const defaultDataWith6Colors = [
+    "#B0604D",
+    "#899F9C",
+    "#B3C680",
+    "#5C6265",
+    "#F5D399",
+    "#F1F1F1",
+];
 const Home = () => {
     const rows = [];
     for (let i = 0; i < dataArray.length; i += 2) {
@@ -50,17 +57,52 @@ const Home = () => {
                             {row.map((item) => (
                                 <Block backgroundColor={Colors.secondary}
                                     row width={'48%'}
-                                    style={{ borderRadius: 5, marginHorizontal: 6,marginRight:0 }}>
+                                    style={{ borderRadius: 5, marginHorizontal: 6, marginRight: 0 }}>
                                     <Block margin={{ Horizontal: 10, Vertical: 16 }} gap={4}>
-                                        <Text size={item?.id===6?'Body' : 'H6'} color='onPrimary'>{item.title}</Text>
+                                        <Text size={item?.id === 6 ? 'Body' : 'H6'} color='onPrimary' font='Regular'>{item.title}</Text>
                                         <Text size='Small' color='onPrimary'>{item.description}</Text>
                                     </Block>
-                                    <Image source={item.images} style={{ width: 36, height: 36, borderRadius: 10, alignSelf: 'center',position:'absolute', right:6 }} />
+                                    <Image source={item.images} style={{ width: 36, height: 36, borderRadius: 10, alignSelf: 'center', position: 'absolute', right: 6 }} />
                                 </Block>))}
                         </View>))}
-                        {/* <Carousel 
-                        data={[]}
-                        renderItem={()=>{}} /> */}
+                    {/* <Carousel
+                        autoPlayInterval={2000}
+                        data={defaultDataWith6Colors}
+                        height={220}
+                        loop={true}
+                        pagingEnabled={true}
+                        snapEnabled={true}
+                        width={430 * 0.75}
+                        style={{
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "100%",
+                            height: 240,
+                        }}
+                        mode={"horizontal-stack"}
+                        modeConfig={{
+                            snapDirection: "left",
+                            stackInterval: 18,
+                        }}
+                        customConfig={() => ({ type: "positive", viewCount: 5 })}
+                        renderItem={({ item, index }:CarouselRenderItem<any>) => {
+                            <Animated.View testID={`${index} + 1`} style={{ flex: 1 }}  >
+                            {(
+                                <Animated.Image
+                                    style={[styles.container, true && { borderRadius: 15 }]}
+                                    source={Images.LoginLogo}
+                                    resizeMode="cover"
+                                />
+                            )}
+                            {false && <View style={[styles.colorFill, true && { borderRadius: 15 }]} />}
+                            <View style={styles.overlay}>
+                                <View style={styles.overlayTextContainer}>
+                                    <Text style={styles.overlayText}>{index}</Text>
+                                </View>
+                            </View>
+                        </Animated.View>
+                        }}
+                    /> */}
                 </Block>
                 <Image source={Images.frame_card2} style={{ width: '93%', height: 56, borderRadius: 10, marginHorizontal: 16, marginVertical: 12 }} />
                 <Block margin={{ Horizontal: 15, Top: 0, Bottom: 80 }} padding={{ Horizontal: 4, Vertical: 15 }} style={{ borderColor: Colors.outlineVariant, borderWidth: 0.5, borderRadius: 10 }}>
@@ -112,5 +154,36 @@ const styles = StyleSheet.create({
         backgroundColor: '#f0f0f0',
         borderRadius: 5,
         alignItems: 'center',
+    },
+    overlay: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    overlayText: {
+        color: "white",
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+    overlayTextContainer: {
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        padding: 10,
+        borderRadius: 10,
+        minWidth: 40,
+        minHeight: 40,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    colorFill: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "gray",
     },
 });

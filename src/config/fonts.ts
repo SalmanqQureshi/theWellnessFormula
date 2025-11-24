@@ -1,6 +1,9 @@
 export const Fonts = Object.freeze({
   // Black: 'EuclidSquare-Black',
   // BlackItalic: 'EuclidSquare-BlackItalic',
+  AvigeaItalic:'Avigea-Italic',
+  Avigea:'Avigea',
+  AvigeaRegular:'Avigea-Regular',
   Bold: 'EuclidSquare-Bold',
   BoldItalic: 'OSerif-Italic',
   // ExtraBold: 'EuclidSquare-ExtraBold',
