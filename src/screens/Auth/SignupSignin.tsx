@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { AnimatedTab, Block, Image } from '../../components'
-import { Text } from 'react-native'
 import { SignIn } from './SignIn'
 import { AuthProps } from '.'
-import { Colors, Images } from '../../config'
-import { Forgot } from './Forgot'
+import { Colors, Images } from '../../config' 
 import { SignUp } from './SignUp'
 
 const SignupSignin = (props: AuthProps<'SignupSignin'>) => {

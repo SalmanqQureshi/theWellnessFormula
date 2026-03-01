@@ -1,0 +1,246 @@
+
+
+You said:
+React Native : mne VS code se android ki build bnai adb assembleDebug cmd through to mujhe ye error mila k SDK not found kuch esa hi tha wo dosry pc me kia tha mne to kia issue hoskta ha or iska solution
+
+ChatGPT said:
+Haan bhai, ye “SDK not found” wala error 90% cases me environment issue hota hai — code ka masla nahi hota 👍
+Tumne build dusre PC pe ki, isliye wahan Android SDK properly set nahi hoga.
+
+Chalo simple language me reasons + solution dono dekhte hain:
+
+🔴 Common Reasons (dusre PC par)
+Android SDK install hi nahi
+
+Android Studio install nahi
+
+Ya SDK download nahi hua
+
+ANDROID_HOME / ANDROID_SDK_ROOT set nahi
+
+System ko pata hi nahi ke SDK kahan rakha hua hai
+
+Gradle ko SDK ka path nahi mil raha
+
+local.properties missing ya galat
+
+JDK version mismatch
+
+Java install nahi ya wrong version (RN ke liye Java 17 best hai)
+
+✅ Step by Step Solution
+✅ 1. Check Android SDK installed hai ya nahi
+Dusre PC pe Android Studio open karo
+
+Settings → Appearance & Behavior → System Settings → Android SDK
+
+Path note karo, usually hota hai:
+
+C:\Users\USERNAME\AppData\Local\Android\Sdk
+✅ 2. Environment Variable set karo
+Windows me:
+
+This PC → Properties → Advanced system settings → Environment Variables
+
+Add karo:
+
+System Variables:
+
+ANDROID_HOME = C:\Users\USERNAME\AppData\Local\Android\Sdk
+Aur PATH me add karo:
+
+%ANDROID_HOME%\platform-tools
+%ANDROID_HOME%\tools
+%ANDROID_HOME%\tools\bin
+PC restart karo ✔️
+
+✅ 3. local.properties file check karo
+Path:
+
+android/local.properties
+Isme ye hona chahiye:
+
+sdk.dir=C:\\Users\\USERNAME\\AppData\\Local\\Android\\Sdk
+⚠️ Single \ mat use karna, double \\ use karo
+
+✅ 4. Java version check karo
+CMD me:
+
+java -version
+RN ke liye best:
+
+Java 17
+Agar Java nahi:
+👉 install OpenJDK 17
+
+✅ 5. Clean build karo
+cd android
+gradlew clean
+cd ..
+npx react-native run-android
+Ya agar sirf build:
+
+cd android
+gradlew assembleDebug
+💡 Tumhara specific case kyun hua?
+“dusre PC me kia tha”
+
+Dusre PC pe:
+❌ Android Studio / SDK installed nahi
+❌ ANDROID_HOME set nahi
+❌ local.properties missing
+
+Isliye Gradle bola:
+
+SDK not found
+
+📌 Quick Check Command
+CMD me run karo:
+
+echo %ANDROID_HOME%
+Agar blank aaya = ❌ variable set nahi
+
+Agar tum chaho to:
+👉 apna exact error message yahan paste karo
+👉 ya local.properties ka content bhej do
+
+Main dekh kar exact fix bata dunga tumhe 🔥
+
+
+You said:
+acha ek important bat k uska react native version almost 68 tha lekin mne npm install ki command chali isky bat mne gradlew clean ki mujhe error mila to mne npm install forced esi kuch command chlai thi lekin phr isky bat mne wohi process npm install phr gradlew clean ye cb succesful run hogai lekin jb mne assembledebug ki chlai to mujhe ye error mila tha jo mne apko uper btaya tha 
+
+ChatGPT said:
+Samajh gaya bhai 👍
+Tumhari story se 2 cheezen clear ho rahi hain:
+
+1️⃣ Project React Native 0.68 ka hai (old)
+2️⃣ Tumne:
+
+npm install
+
+phir error aaya
+
+phir npm install --force
+
+phir gradlew clean successful
+
+lekin assembleDebug pe SDK not found error
+
+Iska matlab:
+👉 npm install --force ne node_modules aur gradle config ko aisi state me daal diya jahan Android SDK ka path properly resolve nahi ho raha
++
+👉 Dusre PC pe SDK properly configured nahi
+
+🔴 Root Problem (tumhare case me)
+RN 0.68:
+
+Old Gradle
+
+Old Android plugin
+
+Old dependency structure
+
+Aur tum:
+
+New PC
+
+New npm
+
+Force install
+
+Is combination me:
+❌ local.properties missing / wrong
+❌ ANDROID_HOME missing
+❌ Gradle confuse ho gaya
+Isliye assembleDebug pe:
+
+SDK not found
+
+✅ Best & Safe Fix (Recommended)
+🧹 1. Sab clean karo (proper way)
+Project folder me:
+
+rm -rf node_modules
+rm -rf android/.gradle
+rm -rf android/build
+rm -rf android/app/build
+Phir:
+
+npm install
+❌ --force use na karo (old RN ke sath risky)
+
+📂 2. local.properties check karo (MOST IMPORTANT)
+android/local.properties
+
+Isme ye hona chahiye:
+
+sdk.dir=C:\\Users\\YOURNAME\\AppData\\Local\\Android\\Sdk
+Agar file nahi:
+👉 manually bana lo
+
+🌍 3. Environment Variable check
+CMD me:
+
+echo %ANDROID_HOME%
+Agar blank:
+👉 set karo:
+
+ANDROID_HOME = C:\Users\YOURNAME\AppData\Local\Android\Sdk
+PATH me add:
+
+%ANDROID_HOME%\platform-tools
+☕ 4. Java version (RN 0.68 ke liye)
+RN 0.68 best with:
+👉 Java 11
+
+Check:
+
+java -version
+Agar Java 17 hai:
+⚠️ kabhi kabhi issue deta hai old RN ke sath
+
+🛠 5. Ab build try karo
+cd android
+gradlew clean
+gradlew assembleDebug
+❗ Tumhari galti nahi thi
+Tumne ye kiya:
+✔️ npm install
+✔️ force se error hataya
+✔️ gradlew clean chala
+✔️ lekin PC environment incomplete tha
+
+Isliye:
+
+“SDK not found”
+
+Aya, jo code issue nahi balkay system issue tha.
+
+🔥 Important Advice
+RN 0.68 project pe:
+❌ npm install --force
+❌ latest Java blindly
+❌ latest Gradle blindly
+
+Ye versions match hone chahiye:
+
+Node: 16.x
+
+Java: 11
+
+Gradle: project wala
+
+Android SDK: installed
+
+📌 Ab mujhe ye bhejo (exact diagnose ke liye):
+1️⃣ assembleDebug ka exact error text
+2️⃣ android/local.properties ka content
+3️⃣ java -version output
+4️⃣ echo %ANDROID_HOME% output
+
+Bas ye 4 cheezen bhej do
+👉 main 100% exact fix bata dunga (guess nahi, sure solution) 💯
+
+
+
